@@ -4,23 +4,29 @@ import { MyScene } from "./components/scene";
 
 function App() {
   const [name, setName] = useState("");
-  const [isVisibleAnimation, setIsVisibleAnimation] = useState(true);
+  const [isVisibleAnimation, setIsVisibleAnimation] = useState(false);
   return (
     <div className="App">
       {!isVisibleAnimation && (
         <div className="container-input">
           <input
+            minLength={3}
+            maxLength={8}
             placeholder="set you name"
             type="text"
             onChange={(e) => setName(e.target.value)}
           />
-          <button onClick={() => setIsVisibleAnimation(true)}>Set name</button>
+          <button
+            disabled={name.length < 3}
+            onClick={() => setIsVisibleAnimation(true)}
+          >
+            Set name
+          </button>
         </div>
       )}
       {isVisibleAnimation && (
         <>
-          <div id="name">{name}</div>
-          <MyScene />
+          <MyScene name={name} />
         </>
       )}
     </div>

@@ -1,15 +1,3 @@
 .App {
   text-align: center;
 }
-#name {
-  position: absolute;
-  top: 100px;
-  width: 100%;
-  text-align: center;
-  z-index: 100;
-  display: block;
-  color: red;
-}
-.container-input {
-  margin-top: 50px;
-}
