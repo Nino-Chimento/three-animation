@@ -4,7 +4,7 @@ import { MyScene } from "./components/scene";
 
 function App() {
   const [name, setName] = useState("");
-  const [isVisibleAnimation, setIsVisibleAnimation] = useState(false);
+  const [isVisibleAnimation, setIsVisibleAnimation] = useState(true);
   return (
     <div className="App">
       {!isVisibleAnimation && (
