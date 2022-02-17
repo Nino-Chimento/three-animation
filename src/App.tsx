@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { MyScene } from "./components/scene";
 
 function App() {
+  const [name, setName] = useState("");
+  const [isVisibleAnimation, setIsVisibleAnimation] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isVisibleAnimation && (
+        <div className="container-input">
+          <input
+            placeholder="set you name"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <button onClick={() => setIsVisibleAnimation(true)}>Set name</button>
+        </div>
+      )}
+      {isVisibleAnimation && (
+        <>
+          <div id="name">{name}</div>
+          <MyScene />
+        </>
+      )}
     </div>
   );
 }
