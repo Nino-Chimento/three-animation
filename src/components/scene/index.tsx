@@ -21,7 +21,6 @@ export const MyScene: FC<MySceneProps> = ({ name }) => {
 
   loader.load(
     "models/nobile/scene.gltf",
-
     function (gltf) {
       const root = gltf.scene;
       root.scale.set(0.5, 0.5, 0.5);
@@ -29,7 +28,6 @@ export const MyScene: FC<MySceneProps> = ({ name }) => {
       scene.add(root);
     },
     undefined,
-
     function (error) {
       console.error(error);
     }
@@ -47,7 +45,6 @@ export const MyScene: FC<MySceneProps> = ({ name }) => {
     }
   );
   const loaderText = new FontLoader();
-
   loaderText.load(
     "fonts/helvetiker_regular.typeface.json",
     function (font: any) {
@@ -61,11 +58,9 @@ export const MyScene: FC<MySceneProps> = ({ name }) => {
         new THREE.MeshPhongMaterial({ color: 0xad4000 }),
         new THREE.MeshPhongMaterial({ color: 0x5c2301 }),
       ]);
-
       textGeometry.position.y += 1;
       textGeometry.position.z -= 40;
       textGeometry.position.x = 12;
-
       scene.add(textGeometry);
     }
   );
