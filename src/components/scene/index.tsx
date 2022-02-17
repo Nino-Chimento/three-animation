@@ -9,21 +9,22 @@ export const MyScene: FC = () => {
     0.1,
     1000
   );
-  // const loader = new GLTFLoader();
-  // loader.load(
-  //   "models/nobile/scene.gltf",
+  // function setupModel(data: any) {
+  //   const model = data.scene.children[0];
 
-  //   function (gltf) {
-  //     console.log(gltf);
+  //   return model;
+  // }
 
-  //     scene.add(gltf.scene);
-  //   },
+  // async function loadNobile() {
+  //   const loader = new GLTFLoader();
 
-  //   undefined,
-  //   function (error) {
-  //     console.error(error);
-  //   }
-  // );
+  //   const nobile = await loader.loadAsync("models/nobile/scene.gltf");
+
+  //   console.log("Squaaawk!", nobile);
+  //   const nobileModel = setupModel(nobile);
+
+  //   return { nobileModel };
+  // }
 
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -37,12 +38,12 @@ export const MyScene: FC = () => {
 
   camera.position.z = 5;
 
-  function animate() {
+  async function animate() {
     requestAnimationFrame(animate);
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
-
+    // await loadNobile();
     renderer.render(scene, camera);
   }
   animate();
