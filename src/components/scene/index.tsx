@@ -64,7 +64,7 @@ export const MyScene: FC = () => {
   );
 
   const light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(1, 4, 5);
+  light.position.set(1, 3, 5);
   scene.add(light);
 
   camera.position.set(0, 1, 3);
@@ -72,8 +72,9 @@ export const MyScene: FC = () => {
 
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  // renderer.setClearColor(0xffffff, 0);
   document.body.appendChild(renderer.domElement);
-
+  scene.background = new THREE.Color(0xffffff);
   async function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
