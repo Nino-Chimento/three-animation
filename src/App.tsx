@@ -9,10 +9,12 @@ function App() {
 
   const [name, setName] = useState("");
   const [isVisibleAnimation, setIsVisibleAnimation] = useState(false);
-  const handleSubmit = () => {
+  const handleSubmit: = () => {
     dispatch(login(name));
     setIsVisibleAnimation(true);
   };
+  const minLength = 3;
+  const maxLength = 8;
   return (
     <div className="App">
       {!isVisibleAnimation && (
@@ -21,8 +23,8 @@ function App() {
           <div className="form-group">
             <input
               className="h-100"
-              minLength={3}
-              maxLength={8}
+              minLength={minLength}
+              maxLength={maxLength}
               placeholder="set you name"
               type="text"
               onChange={(e) => setName(e.target.value)}
