@@ -1,14 +1,12 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
 import * as THREE from "three";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-interface MySceneProps {
-  name: string;
-}
-
-export const MyScene: FC<MySceneProps> = ({ name }) => {
+export const MyScene: FC = () => {
+  const { user } = useSelector((state: { user: any }) => state.user);
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -48,7 +46,7 @@ export const MyScene: FC<MySceneProps> = ({ name }) => {
   loaderText.load(
     "fonts/helvetiker_regular.typeface.json",
     function (font: any) {
-      const geometry = new TextGeometry(name, {
+      const geometry = new TextGeometry(user, {
         font: font,
         size: 2,
         height: 2,
