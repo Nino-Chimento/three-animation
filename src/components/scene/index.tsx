@@ -72,7 +72,7 @@ export const MyScene: FC = () => {
 
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  // renderer.setClearColor(0xffffff, 0);
+
   document.body.appendChild(renderer.domElement);
   scene.background = new THREE.Color(0xffffff);
   async function animate() {
