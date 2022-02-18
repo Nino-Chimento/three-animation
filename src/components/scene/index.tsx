@@ -38,9 +38,9 @@ export const MyScene: FC = () => {
       scene.add(root);
     },
     undefined,
-    function (error) {
+    /*function (error) {
       console.error(error);
-    }
+    }*/
   );
   const loaderText = new FontLoader();
   loaderText.load(
