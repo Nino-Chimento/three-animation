@@ -7,8 +7,8 @@ import { login } from "./redux/store/user";
 function App() {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState("");
-  const [isVisibleAnimation, setIsVisibleAnimation] = useState(false);
+  const [name, setName] = useState<string>("");
+  const [isVisibleAnimation, setIsVisibleAnimation] = useState<boolean>(false);
   const handleSubmit = () => {
     dispatch(login(name));
     setIsVisibleAnimation(true);
@@ -25,7 +25,8 @@ function App() {
               maxLength={8}
               placeholder="set you name"
               type="text"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => 
+          (e.target.value)}
             />
           </div>
           <button
